@@ -26,7 +26,7 @@ async function fetchAllBlog() {
                     <h2>${blog.title}</h2> <br>
                     <p><span class="date"> ${blog.author} | ${blogDate.getFullYear()}-${blogDate.getMonth()+1}-${blogDate.getDate()} ${blogDate.toLocaleTimeString()}</span> </p>                    
                     <p>${content} <p> 
-                    <a href="#">read more</a>
+                    <a href="post.html" >read more</a>
                     <p>Tags : ${strTags} <p> 
 
                 </li>
