@@ -56,11 +56,21 @@ async function updatePost(postId) {
         const updatePostForm = document.getElementById('updatePostForm');
         const formData = new FormData(updatePostForm);
 
+        const customTagsString = formData.get('customTags');
+        const customTagsArray = [];
+        if (customTagsString) {
+            const customTags = customTagsString.split(',');
+            for (let tag of customTags) {
+                customTagsArray.push(tag.trim());
+            }
+        }
+        tags = [...formData.getAll('tags'), ...customTagsArray];
+
         const data = {
             "title": formData.get('title'),
             "author": formData.get('author'),
             "content": formData.get('content'),
-            "tags": formData.getAll('tags')
+            "tags": tags
         };
 
         const response = await fetch(`https://blog-api-assignment.up.railway.app/posts/${postId}`, {
