@@ -33,7 +33,7 @@ async function createPost(event) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
-        location.replace('index.html');
+        location.replace('admin.html');
 
     } catch (error) {
         console.log(error)
