@@ -9,10 +9,13 @@ async function fetchAllBlog() {
         for (let blog of blogs) {          
           
           console.log(blog);
-
-            let content = blog.content.substring(0, 100);
-            // let content = blog.content;
+            let content = "";
+            if (blog.content){
+               content = blog.content.substring(0, 100);
+            }
+            // let content = blog.content;            
             let blogDate = new Date(blog.date)
+            
             let strTags = "";
             if (blog.tags){
                 for (let tag of blog.tags) {
@@ -26,7 +29,7 @@ async function fetchAllBlog() {
                     <h2>${blog.title}</h2> <br>
                     <p><span class="date"> ${blog.author} | ${blogDate.getFullYear()}-${blogDate.getMonth()+1}-${blogDate.getDate()} ${blogDate.toLocaleTimeString()}</span> </p>                    
                     <p>${content} <p> 
-                    <a href="post.html" >read more</a>
+                    <a href="post.html?id=${blog._id}" >read more</a>
                     <p>Tags : ${strTags} <p> 
 
                 </li>
