@@ -31,7 +31,10 @@ async function fetchAllBlog() {
                     <td>${blog.author}</td>
                     <td>${strTags}</td>
                     <td>${blogDate.getFullYear()}-${blogDate.getMonth() + 1}-${blogDate.getDate()} ${blogDate.toLocaleTimeString()}</td>
-                    <td> <a href="update-post.html?id=${blog._id}">Update</a> <a href="#" data-id="${blog._id}" class="delete-links">Delete</a></td>
+                    <td> 
+                        <a href="update-post.html?id=${blog._id}" class="update-links" >Update</a> 
+                        <a href="#" data-id="${blog._id}" class="delete-links">Delete</a>
+                    </td>
                 </tr>`;
         }
 
